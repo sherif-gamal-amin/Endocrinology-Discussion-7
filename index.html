@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endocrinology Discussion (7)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            user-select: none; /* يمنع تحديد النص */
+            -webkit-user-select: none; /* لمتصفحات WebKit مثل Chrome وSafari */
+            -moz-user-select: none; /* لمتصفح Firefox */
+            -ms-user-select: none; /* لمتصفح Internet Explorer/Edge */
+        }
+        @media print { /* إخفاء الصفحة عند الطباعة */
+            body { 
+                display: none;
+            }
+        }
+
+        .quiz-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .timer {
+            color: red;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            display: none;
+        }
+        .incorrect {
+            color: red;
+        }
+        .correct {
+            color: green;
+        }
+        .question-result {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        img {
+            pointer-events: none; /* يمنع سحب الصور */
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Endocrinology Discussion (7)</h1>
+        <div class="timer" id="timer">Time remaining: 60 seconds</div>
+
+        <div class="question" id="question-1">
+            <p>1- All of the following are features of Conn syndrome EXCEPT:</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="Alkalosis"> Alkalosis</label>
+                <label><input type="radio" name="q1" value="Hyperkalemia"> Hyperkalemia</label>
+                <label><input type="radio" name="q1" value="Muscle cramps"> Muscle cramps</label>
+                <label><input type="radio" name="q1" value="Normal serum sodium"> Normal serum sodium</label>
+                <label><input type="radio" name="q1" value="Severe systemic hypertension"> Severe systemic hypertension</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-2">
+            <p>2- What is the most common cause of primary hyperaldosteronism?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="Pituitary tumour"> Pituitary tumour</label>
+                <label><input type="radio" name="q2" value="Adrenocortical adenoma"> Adrenocortical adenoma</label>
+                <label><input type="radio" name="q2" value="Adrenal carcinoma"> Adrenal carcinoma</label>
+                <label><input type="radio" name="q2" value="Ectopic secretion"> Ectopic secretion</label>
+                <label><input type="radio" name="q2" value="Bilateral idiopathic adrenal hyperplasia"> Bilateral idiopathic adrenal hyperplasia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-3">
+            <p>3- A 28 year old man is referred having been found, on home blood pressure monitoring, to have hypertension. His serum potassium at diagnosis was 2.9 mmol/L. He has been commenced on antihypertensive therapy and is referred in for investigation of mineralocorticoid excess. Which of the following antihypertensive therapies may interfere with these investigations by increasing plasma renin concentrations?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="Amlodipine"> Amlodipine</label>
+                <label><input type="radio" name="q3" value="Bendroflumethiazide"> Bendroflumethiazide</label>
+                <label><input type="radio" name="q3" value="Bisoprolol"> Bisoprolol</label>
+                <label><input type="radio" name="q3" value="Diltiazem"> Diltiazem</label>
+                <label><input type="radio" name="q3" value="Doxazosin"> Doxazosin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-4">
+            <p>4- A 24-year-oId woman is found to have a blood pressure of 170/100 mmHg during a routine medical check. She is well and clinical examination is unremarkable Blood tests show:</p>
+            <p>Na+ 140 mmol/I<br>
+            K+ 2.6 mmol/l<br>
+            Bicarbonate 31 mmol/l<br>
+            Urea 3,4 mmol/l<br>
+            Creatinine 77 umol/l</p>
+            <p>Which one of the following investigations is most likely to be diagnostic'?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="Renal ultrasound"> Renal ultrasound</label>
+                <label><input type="radio" name="q4" value="Overnight dexamethasone suppression test"> Overnight dexamethasone suppression test</label>
+                <label><input type="radio" name="q4" value="Renin : aldosterone ratio"> Renin : aldosterone ratio</label>
+                <label><input type="radio" name="q4" value="MR angiography"> MR angiography</label>
+                <label><input type="radio" name="q4" value="21-hydroxylase estimation"> 21-hydroxylase estimation</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-5">
+            <p>5- Liddle's syndrome is associated with each one of the following, except:</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="Alkalosis"> Alkalosis</label>
+                <label><input type="radio" name="q5" value="Response to treatment with amiloride"> Response to treatment with amiloride</label>
+                <label><input type="radio" name="q5" value="Hypertension"> Hypertension</label>
+                <label><input type="radio" name="q5" value="Autosomal recessive inheritance"> Autosomal recessive inheritance</label>
+                <label><input type="radio" name="q5" value="Hypokalaemia"> Hypokalaemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-6">
+            <p>6- A 4 year old boy is being investigated for failure to thrive and generalised weaKness. His blood pressure is normal. The following blood results are obtained:</p>
+            <p>Na 137 mmol/l<br>
+            K 3.0 mmol/l<br>
+            Urea 4.5 mmol/l<br>
+            Creatinine 65 µmol/l<br>
+            Bicarbonate 33 mmol/l</p>
+            <p>What is the most liKely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="Conn's syndrome"> Conn's syndrome</label>
+                <label><input type="radio" name="q6" value="Bartter's syndrome"> Bartter's syndrome</label>
+                <label><input type="radio" name="q6" value="Cushing's syndrome"> Cushing's syndrome</label>
+                <label><input type="radio" name="q6" value="21-hydroxylase deficiency"> 21-hydroxylase deficiency</label>
+                <label><input type="radio" name="q6" value="Liddle's syndrome"> Liddle's syndrome</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-7">
+            <p>7- A 3-year-old boy is investigated for lethargy. Examination is unremarkable with a blood pressure of 90/46 mmHg (normal for his age). Blood tests reveal:</p>
+            <p>Na• 140 mmol/l<br>
+            K+ 2.6 mmol/l<br>
+            Bicarbonate 33 mmol/l<br>
+            Urea 4.2 mmol/l<br>
+            Creatinine 91 µmol/l</p>
+            <p>Which one of the following conditions is most likely to be responsible?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="Cushing's syndrome"> Cushing's syndrome</label>
+                <label><input type="radio" name="q7" value="Conn's syndrome"> Conn's syndrome</label>
+                <label><input type="radio" name="q7" value="11-beta hydroxylase deficiency"> 11-beta hydroxylase deficiency</label>
+                <label><input type="radio" name="q7" value="Bartter's syndrome"> Bartter's syndrome</label>
+                <label><input type="radio" name="q7" value="Liddle's syndrome"> Liddle's syndrome</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-8">
+            <p>8- Which one of the following features is least commonly seen in Gitelman's syndrome?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="Hypokalaemia"> Hypokalaemia</label>
+                <label><input type="radio" name="q8" value="Hypertension"> Hypertension</label>
+                <label><input type="radio" name="q8" value="Metabolic alkalosis"> Metabolic alkalosis</label>
+                <label><input type="radio" name="q8" value="Hypocalciuria"> Hypocalciuria</label>
+                <label><input type="radio" name="q8" value="Hypomagnesaemia"> Hypomagnesaemia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-9">
+            <p>9- Patient with sever headache, heavy sweating, palpitations and blood pressure 210/120 .. urinary metanephrines are elevated .. what is your diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="Conn syndrome"> Conn syndrome</label>
+                <label><input type="radio" name="q9" value="Pheochromocytoma"> Pheochromocytoma</label>
+                <label><input type="radio" name="q9" value="Cushing"> Cushing</label>
+                <label><input type="radio" name="q9" value="Acromegaly"> Acromegaly</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-10">
+            <p>10- Pheochromocytoma is not associated with:</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="Weight gain"> Weight gain</label>
+                <label><input type="radio" name="q10" value="Fear of death (angor animi)"> Fear of death (angor animi)</label>
+                <label><input type="radio" name="q10" value="Paroxysmal hypertension"> Paroxysmal hypertension</label>
+                <label><input type="radio" name="q10" value="Constipation"> Constipation</label>
+                <label><input type="radio" name="q10" value="Sweating"> Sweating</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-11">
+            <p>11-A 41-year-old man presents with recurrent headaches. These typically occur 2-3 times a day and are associated with sweating and palpitations. As he was concerned that it may be due to blood pressure he borrowed his fathers home monitor. During these episodes his blood pressure is around 210/110 mmHg. Given the likely diagnosis, what is the most appropriate next test?</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value="MRI adrenals"> MRI adrenals</label>
+                <label><input type="radio" name="q11" value="Phenoxybenzamine suppression test"> Phenoxybenzamine suppression test</label>
+                <label><input type="radio" name="q11" value="24 hour urinary collection of vanillylmandelic acid"> 24 hour urinary collection of vanillylmandelic acid</label>
+                <label><input type="radio" name="q11" value="24 hour urinary collection of metanephrines"> 24 hour urinary collection of metanephrines</label>
+                <label><input type="radio" name="q11" value="24 hour urinary collection of catecholamines"> 24 hour urinary collection of catecholamines</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-12">
+            <p>12- Vanillylmandelic acid (VMA) excretion is increased in urine in:</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="Conn's syndrome"> Conn's syndrome</label>
+                <label><input type="radio" name="q12" value="Congenital adrenal hyperplasia"> Congenital adrenal hyperplasia</label>
+                <label><input type="radio" name="q12" value="Testicular feminization syndrome"> Testicular feminization syndrome</label>
+                <label><input type="radio" name="q12" value="Pheochromocytoma"> Pheochromocytoma</label>
+                <label><input type="radio" name="q12" value="Vipoma"> Vipoma</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-13">
+            <p>13-A 43-year-old man is found to have a pheochromocytoma. Which anti-hypertensive medication should be started first?</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="Propranolol"> Propranolol</label>
+                <label><input type="radio" name="q13" value="Ramipril"> Ramipril</label>
+                <label><input type="radio" name="q13" value="Atenolol"> Atenolol</label>
+                <label><input type="radio" name="q13" value="Phenoxybenzamine"> Phenoxybenzamine</label>
+                <label><input type="radio" name="q13" value="Doxazosin"> Doxazosin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-14">
+            <p>14- A 24 year old man is admitted to the emergency department having collapsed at the gym. He describes symptoms of headache, feeling flushed with associated palpitations and sweating. He was observed by his friends to become pale before he collapsed. He is persistently hypertensive and a 24-hour urine collection shows elevated metadrenalines (metanephrines). First-line treatment for this condition should be with which of the following?</p>
+            <div class="options">
+                <label><input type="radio" name="q14" value="Bisoprolol"> Bisoprolol</label>
+                <label><input type="radio" name="q14" value="Dexamethasone"> Dexamethasone</label>
+                <label><input type="radio" name="q14" value="Fludrocortisone"> Fludrocortisone</label>
+                <label><input type="radio" name="q14" value="Ketoconazole"> Ketoconazole</label>
+                <label><input type="radio" name="q14" value="Phenoxybenzamine"> Phenoxybenzamine</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-15">
+            <p>15-A 65-year-old woman complains of panic attacks. She has recently retired as a school teacher, but 2–3 times a week she suffers extreme anxiety, becomes short of breath and sweats excessively. Elevated catecholamines are detected in the urine. The most appropriate medical treatment is:</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="Phenoxybenzamine alone"> Phenoxybenzamine alone</label>
+                <label><input type="radio" name="q15" value="Propranolol alone"> Propranolol alone</label>
+                <label><input type="radio" name="q15" value="Phenoxybenzamine followed by propanolol"> Phenoxybenzamine followed by propanolol</label>
+                <label><input type="radio" name="q15" value="Sodium nitroprusside"> Sodium nitroprusside</label>
+                <label><input type="radio" name="q15" value="Propranolol followed by phenoxybenzamine"> Propranolol followed by phenoxybenzamine</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-16">
+            <p>16- Beta-blockers can be used in all except:</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="Glaucoma"> Glaucoma</label>
+                <label><input type="radio" name="q16" value="Bronchial Asthma"> Bronchial Asthma</label>
+                <label><input type="radio" name="q16" value="Anxiety states"> Anxiety states</label>
+                <label><input type="radio" name="q16" value="Angina pectoris"> Angina pectoris</label>
+                <label><input type="radio" name="q16" value="Migraine"> Migraine</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-17">
+            <p>17- Sleeping pulse rate is not increased in:</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="Anxiety neurosis"> Anxiety neurosis</label>
+                <label><input type="radio" name="q17" value="Rheumatic carditis"> Rheumatic carditis</label>
+                <label><input type="radio" name="q17" value="Pulmonary tuberculosis"> Pulmonary tuberculosis</label>
+                <label><input type="radio" name="q17" value="Atropinized patient"> Atropinized patient</label>
+                <label><input type="radio" name="q17" value="Depression"> Depression</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-18">
+            <p>18- A 22-year-old woman is found unconscious in her room by her boyfriend and brought into accident and emergency. A urine dipstick is positive for glucose and ketones and blood analysis shows the following results:</p>
+            <p>pH 6.9<br>
+               PCO2 3.0 kPa<br>
+               PO2 13 kPa<br>
+               Sodium 144 mmol/L<br>
+               Potassium 5.0 mmol/L<br>
+               Urea 11<br>
+               Glucose 20<br>
+               Chloride 100<br>
+               Bicarbonate 2.9</p>
+            <p>The most likely anion gap is:</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="180"> 180</label>
+                <label><input type="radio" name="q18" value="118"> 118</label>
+                <label><input type="radio" name="q18" value="139.2"> 139.2</label>
+                <label><input type="radio" name="q18" value="46.1"> 46.1</label>
+                <label><input type="radio" name="q18" value="28"> 28</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-19">
+            <p>19- A 57-year-old woman, who has recently returned from a holiday in America, presents with dull grey-brown patches in her mouth and the palms of her hand which she has noticed in the last week. She has also noticed she gets very dizzy when rising from a seated position and is continually afraid of fainting. The most likely diagnosis is:</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="Addison’s disease"> Addison’s disease</label>
+                <label><input type="radio" name="q19" value="SIADH"> SIADH</label>
+                <label><input type="radio" name="q19" value="Conn’s syndrome"> Conn’s syndrome</label>
+                <label><input type="radio" name="q19" value="Waterhouse–Friderichsen syndrome"> Waterhouse–Friderichsen syndrome</label>
+                <label><input type="radio" name="q19" value="17-hydroxylase deficiency"> 17-hydroxylase deficiency</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-20">
+            <p>20- Features of Addison's-disease do not include:</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="Diarrhoea"> Diarrhoea</label>
+                <label><input type="radio" name="q20" value="Dizziness"> Dizziness</label>
+                <label><input type="radio" name="q20" value="Dermatitis"> Dermatitis</label>
+                <label><input type="radio" name="q20" value="Dehydration"> Dehydration</label>
+                <label><input type="radio" name="q20" value="Lymphocytosis"> Lymphocytosis</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-21">
+            <p>21- Which one of the following is least characteristic of Addison's disease?</p>
+            <div class="options">
+                <label><input type="radio" name="q21" value="Hypoglycaemia"> Hypoglycaemia</label>
+                <label><input type="radio" name="q21" value="Metabolic alkalosis"> Metabolic alkalosis</label>
+                <label><input type="radio" name="q21" value="Hyponatraemia"> Hyponatraemia</label>
+                <label><input type="radio" name="q21" value="Hyperkalaemia"> Hyperkalaemia</label>
+                <label><input type="radio" name="q21" value="Positive short ACTH test"> Positive short ACTH test</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-22">
+            <p>22- A 45-year-old female is reviewed in the medical clinic with a two month history of lethargy. Blood tests reveal the following:</p>
+            <p>Na 129 mmol/I<br>
+               K+ 5.1 mmol/l<br>
+               Urea 5.3 mmol/l<br>
+               Creatinine 99 umoI/I<br>
+               Total T4  66 nmol/l</p>
+            <p>Which one of the following investigations is most likely to reveal the diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q22" value="Serum glucose"> Serum glucose</label>
+                <label><input type="radio" name="q22" value="TSH"> TSH</label>
+                <label><input type="radio" name="q22" value="Free T4"> Free T4</label>
+                <label><input type="radio" name="q22" value="Overnight dexamethasone suppression test"> Overnight dexamethasone suppression test</label>
+                <label><input type="radio" name="q22" value="Short synacthen test"> Short synacthen test</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-23">
+            <p>23- A 22-year-old woman complains of dizziness and feeling light-headed. She works in an office and most frequently experiences this when standing up to visit the toilet. She has never fainted. The patient has lost 5 kg, but attributes this to eating more healthily. She has noticed a recent scar on the back of her hand which has started to turn very dark. The most appropriate investigation is:</p>
+            <div class="options">
+                <label><input type="radio" name="q23" value="Synacthen test"> Synacthen test</label>
+                <label><input type="radio" name="q23" value="Low-dose dexamethasone test"> Low-dose dexamethasone test</label>
+                <label><input type="radio" name="q23" value="Cortisol measurement"> Cortisol measurement</label>
+                <label><input type="radio" name="q23" value="Urinary free cortisol measurement"> Urinary free cortisol measurement</label>
+                <label><input type="radio" name="q23" value="Abdominal ultrasound (US) scan"> Abdominal ultrasound (US) scan</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-24">
+            <p>24- A 45-year-old female is admitted to the Emergency Department with abdominal pain associated with vomiting. She has a past medical history of hypothyroidism and takes thyroxine. On examination she is pyrexial at 37.6ºC. Pulse is 110 bpm with a blood pressure of 100/64 mmHg. Blood results show the following:</p>
+            <p>Na+ 131 mmol/l<br>
+               K+ 4.9 mmol/l<br>
+               Urea 8.1 mmol/l<br>
+               Creatinine 110 μmol/l<br>
+               Glucose 3.3 mmol/l</p>
+            <p>What treatment should be given first?</p>
+            <div class="options">
+                <label><input type="radio" name="q24" value="Ceftriaxone + benzylpenicillin"> Ceftriaxone + benzylpenicillin</label>
+                <label><input type="radio" name="q24" value="Glucagon"> Glucagon</label>
+                <label><input type="radio" name="q24" value="Propranolol"> Propranolol</label>
+                <label><input type="radio" name="q24" value="Triiodothyronine"> Triiodothyronine</label>
+                <label><input type="radio" name="q24" value="Hydrocortisone"> Hydrocortisone</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-25">
+            <p>25- A 34-year-old female with a history of Addison's disease presents for review in endocrinology clinic. She is generally well but complains of a decrease in her libido. On examination there is a slight loss of pubic hair. What is the most likely cause?</p>
+            <div class="options">
+                <label><input type="radio" name="q25" value="Adverse effect of hydrocortisone therapy"> Adverse effect of hydrocortisone therapy</label>
+                <label><input type="radio" name="q25" value="11-hydroxylase deficiency"> 11-hydroxylase deficiency</label>
+                <label><input type="radio" name="q25" value="Diethylstilbestrol deficiency"> Diethylstilbestrol deficiency</label>
+                <label><input type="radio" name="q25" value="Oestrogen deficiency"> Oestrogen deficiency</label>
+                <label><input type="radio" name="q25" value="Dehydroepiandrosterone (DHEA) deficiency"> Dehydroepiandrosterone (DHEA) deficiency</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-26">
+            <p>26- Apoptosis is programmed cell death, mediated by:</p>
+            <div class="options">
+                <label><input type="radio" name="q26" value="activation of proteolytic enzymes called caspases"> activation of proteolytic enzymes called caspases</label>
+                <label><input type="radio" name="q26" value="DNA synthesis"> DNA synthesis</label>
+                <label><input type="radio" name="q26" value="Antibodies"> Antibodies</label>
+                <label><input type="radio" name="q26" value="Necrosis"> Necrosis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-27">
+            <p>27- Which of the following components of complement system mediates as opsonin?</p>
+            <div class="options">
+                <label><input type="radio" name="q27" value="C5a"> C5a</label>
+                <label><input type="radio" name="q27" value="C6"> C6</label>
+                <label><input type="radio" name="q27" value="C8"> C8</label>
+                <label><input type="radio" name="q27" value="C9"> C9</label>
+                <label><input type="radio" name="q27" value="C3b"> C3b</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-28">
+            <p>28- Which of the following occurs first in the majority of girls with normal pubertal development?</p>
+            <div class="options">
+                <label><input type="radio" name="q28" value="Achieving peak height velocity"> Achieving peak height velocity</label>
+                <label><input type="radio" name="q28" value="Menarche"> Menarche</label>
+                <label><input type="radio" name="q28" value="Breast development"> Breast development</label>
+                <label><input type="radio" name="q28" value="Development of pubic hair"> Development of pubic hair</label>
+                <label><input type="radio" name="q28" value="Development of axillary hair"> Development of axillary hair</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-29">
+            <p>29- A girl is investigated for primary amenorrhoea, despite having developed secondary sexual characteristics at 11 years of age. On examination she has well developed breasts with scanty pubic hair and small bilateral groin swellings. What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q29" value="Congenital adrenal hyperplasia"> Congenital adrenal hyperplasia</label>
+                <label><input type="radio" name="q29" value="Polycystic ovarian syndrome"> Polycystic ovarian syndrome</label>
+                <label><input type="radio" name="q29" value="Turners syndrome"> Turners syndrome</label>
+                <label><input type="radio" name="q29" value="Complete androgen insensitivity syndrome"> Complete androgen insensitivity syndrome</label>
+                <label><input type="radio" name="q29" value="Mullerian duct agenesis"> Mullerian duct agenesis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-30">
+            <p>30- A 23-year-old woman presents for review. She has not had a normal period for around 8 months now. A recent pregnancy test was negative. Blood tests are ordered:</p>
+            <p>FSH 2.2 IU/L (0-20 IU/L)<br>
+                Oestradiol 34 pmol/l (100-500 pmol/l)<br>
+                Thyroid stimulating hormone 3.1 mlU/L<br>
+                Prolactin 2 ng/ml (0-10 ng/ml)<br>
+                Free androgen index 3 (<7)</p>
+            <p>What is the most likely cause of her symptoms?</p>
+            <div class="options">
+                <label><input type="radio" name="q30" value="Prolactinoma"> Prolactinoma</label>
+                <label><input type="radio" name="q30" value="Premature ovarian failure"> Premature ovarian failure</label>
+                <label><input type="radio" name="q30" value="Polycystic ovarian syndrome"> Polycystic ovarian syndrome</label>
+                <label><input type="radio" name="q30" value="Addison's disease"> Addison's disease</label>
+                <label><input type="radio" name="q30" value="Excessive exercise"> Excessive exercise</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-31">
+            <p>31- A 26-year-old obese female is investigated for menstrual disturbance. A diagnosis of polycystic ovarian syndrome is made. Which of the following findings is most consistently seen in polycystic ovarian syndrome?</p>
+            <div class="options">
+                <label><input type="radio" name="q31" value="Obesity"> Obesity</label>
+                <label><input type="radio" name="q31" value="Hirsutism"> Hirsutism</label>
+                <label><input type="radio" name="q31" value="Ovarian cysts on ultrasound"> Ovarian cysts on ultrasound</label>
+                <label><input type="radio" name="q31" value="Raised LH : FSH ratio"> Raised LH : FSH ratio</label>
+                <label><input type="radio" name="q31" value="Clitoromegaly"> Clitoromegaly</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-32">
+            <p>32- Which one of the following statements regarding polycystic ovarian syndrome (PCOS) is incorrect?</p>
+            <div class="options">
+                <label><input type="radio" name="q32" value="A slightly elevated prolactin is consistent with a diagnosis of PCOS"> A slightly elevated prolactin is consistent with a diagnosis of PCOS</label>
+                <label><input type="radio" name="q32" value="Luteinizing hormone levels are usually raised"> Luteinizing hormone levels are usually raised</label>
+                <label><input type="radio" name="q32" value="Hyperinsulinaemia is seen"> Hyperinsulinaemia is seen</label>
+                <label><input type="radio" name="q32" value="Acanthosis nigricans may be seen"> Acanthosis nigricans may be seen</label>
+                <label><input type="radio" name="q32" value="Affects between 2-3% of women of reproductive age"> Affects between 2-3% of women of reproductive age</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-33">
+            <p>33- An 24-year-old woman is reviewed due to facial hirsutism. You suspect a diagnosis of polycystic ovarian syndrome (PCOS). Which one of the following features would suggest the need for further investigations before confidently making a diagnosis of PC0S?</p>
+            <div class="options">
+                <label><input type="radio" name="q33" value="Clitoromegaly"> Clitoromegaly</label>
+                <label><input type="radio" name="q33" value="Acanthosis nigricans"> Acanthosis nigricans</label>
+                <label><input type="radio" name="q33" value="Obesity"> Obesity</label>
+                <label><input type="radio" name="q33" value="Amenorrhoea"> Amenorrhoea</label>
+                <label><input type="radio" name="q33" value="Acne"> Acne</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-34">
+            <p>34- A 30-year-old woman who is investigated for obesity hirsutism and oligomenorrhea is diagnosed as having polycystic ovarian syndrome (PCOS) following an ultrasound scan. She is hoping to start a family and her doctor starts metformin to try and improve her fertility. What is the mechanism of action of metformin in PCOS?</p>
+            <div class="options">
+                <label><input type="radio" name="q34" value="Stimulates the release of insulin from the pancreas"> Stimulates the release of insulin from the pancreas</label>
+                <label><input type="radio" name="q34" value="Blocks the insulin mediated development of multiple immature follicles in the ovaries"> Blocks the insulin mediated development of multiple immature follicles in the ovaries</label>
+                <label><input type="radio" name="q34" value="Increases peripheral insulin sensitivity"> Increases peripheral insulin sensitivity</label>
+                <label><input type="radio" name="q34" value="Blocks the conversion of oestradicl to testosterone"> Blocks the conversion of oestradicl to testosterone</label>
+                <label><input type="radio" name="q34" value="Increases hepatic gluconeogenesis"> Increases hepatic gluconeogenesis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-35">
+            <p>35- A 28-year-old woman with polycystic ovarian syndrome consults you as she is having problems becoming pregnant. She has a past history of oligomenorrhea and has previously recently stopped taking a combined oral contraceptive pill. Despite stopping the pill 6 months ago she is still not having regular periods. Her body mass index is 28 kg/m^2. Apart from advising her to lose weight, which one of the following interventions is most effective in increasing her chances of conceiving?</p>
+            <div class="options">
+                <label><input type="radio" name="q35" value="Metformin"> Metformin</label>
+                <label><input type="radio" name="q35" value="Bromocriptine"> Bromocriptine</label>
+                <label><input type="radio" name="q35" value="Laparoscopic ovarian cautery"> Laparoscopic ovarian cautery</label>
+                <label><input type="radio" name="q35" value="Clomifene"> Clomifene</label>
+                <label><input type="radio" name="q35" value="Orlistat"> Orlistat</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-36">
+            <p>36- A 41-year-old woman is investigated for hot flushes and night sweats. Bloods show a significantly raised FSH level and her symptoms are attributed to the menopause. Following discussions with the patient she elects to have hormone replacement treatment. What is the most significant risk of prescribing an oestrogen-only preparation rather than a combined oestrogen-progestogen preparation?</p>
+            <div class="options">
+                <label><input type="radio" name="q36" value="Increased risk of venous thromboembolism"> Increased risk of venous thromboembolism</label>
+                <label><input type="radio" name="q36" value="Increased risk of ovarian cancer"> Increased risk of ovarian cancer</label>
+                <label><input type="radio" name="q36" value="Increased risk of endometrial cancer"> Increased risk of endometrial cancer</label>
+                <label><input type="radio" name="q36" value="Increased risk of breast cancer"> Increased risk of breast cancer</label>
+                <label><input type="radio" name="q36" value="Increased risk of colorectal cancer"> Increased risk of colorectal cancer</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-37">
+            <p>37- A 54-year-old woman who has had a hysterectomy presents for advice about hormone replacement therapy. Which one of the following would result from the use of a combined oestrogen-progestogen preparation compared to an oestrogen-only preparation?</p>
+            <div class="options">
+                <label><input type="radio" name="q37" value="Decreased risk of venous thromboembolism"> Decreased risk of venous thromboembolism</label>
+                <label><input type="radio" name="q37" value="Increased risk of a stroke"> Increased risk of a stroke</label>
+                <label><input type="radio" name="q37" value="Increased risk of breast cancer"> Increased risk of breast cancer</label>
+                <label><input type="radio" name="q37" value="Increased risk of endometrial cancer"> Increased risk of endometrial cancer</label>
+                <label><input type="radio" name="q37" value="Better control of symptoms"> Better control of symptoms</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-38">
+            <p>38- An 18-year-old man presents to clinic worried about his scant pubic hair development. Examination reveals undescended testes and plasma testosterone, luteinizing hormone and follicle stimulating hormone were found to be low. A karyotype test was 46, XY. The patient was otherwise well, but during neurological examination struggled during the olfactory test. The most likely diagnosis is:</p>
+            <div class="options">
+                <label><input type="radio" name="q38" value="Hypogonadotropic hypogonadism"> Hypogonadotropic hypogonadism</label>
+                <label><input type="radio" name="q38" value="Klinefelter’s disease"> Klinefelter’s disease</label>
+                <label><input type="radio" name="q38" value="Androgen insensitivity syndrome"> Androgen insensitivity syndrome</label>
+                <label><input type="radio" name="q38" value="5-alpha reductase deficiency"> 5-alpha reductase deficiency</label>
+                <label><input type="radio" name="q38" value="Kallman’s syndrome"> Kallman’s syndrome</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-39">
+            <p>39- Which of the following is common in patients with Kallmann syndrome?</p>
+            <div class="options">
+                <label><input type="radio" name="q39" value="Anosmia"> Anosmia</label>
+                <label><input type="radio" name="q39" value="A white forelock"> A white forelock</label>
+                <label><input type="radio" name="q39" value="Precocious (early) puberty in females"> Precocious (early) puberty in females</label>
+                <label><input type="radio" name="q39" value="Syndactyly in males"> Syndactyly in males</label>
+                <label><input type="radio" name="q39" value="Hyperphagic obesity"> Hyperphagic obesity</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-40">
+            <p>40- A 17 year old boy is referred with delayed puberty. He has noticed that he is taller than his classmates. On clinical examination he is found to have sparse facial and body hair as well as small pre-pubertal-sized testes and penis. Blood tests reveal testosterone 7.5 nmol/L (216 ng/dl), FSH 12 IU/L (2.8 ug/L), LH 11 IU/L (1.2 ug/L). What is the most appropriate next test?</p>
+            <div class="options">
+                <label><input type="radio" name="q40" value="GH measurement"> GH measurement</label>
+                <label><input type="radio" name="q40" value="Karyotype"> Karyotype</label>
+                <label><input type="radio" name="q40" value="Prolactin level"> Prolactin level</label>
+                <label><input type="radio" name="q40" value="Thyroid function test"> Thyroid function test</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-41">
+            <p>41- A 23-year-old woman presents for evaluation of irregular periods and infertility. Her clinical examination is entirely normal. Biochemical tests show a reduced estradiol and follicle-stimulating hormone (FSH) levels. She is diagnosed with central hypogonadism. Which of the following is the most important function of FSH?</p>
+            <div class="options">
+                <label><input type="radio" name="q41" value="causes ovulation"> causes ovulation</label>
+                <label><input type="radio" name="q41" value="encourages progesterone secretion"> encourages progesterone secretion</label>
+                <label><input type="radio" name="q41" value="causes the secretory phase of the uterine mucosa"> causes the secretory phase of the uterine mucosa</label>
+                <label><input type="radio" name="q41" value="inhibits estrogen secretion"> inhibits estrogen secretion</label>
+                <label><input type="radio" name="q41" value="encourages maturation of the follicle"> encourages maturation of the follicle</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-42">
+            <p>42- A 32 year old woman attends her family physician with a 12-month history of inability to conceive. She has been having regular periods every 28 days. Ovulation can be confirmed by which of the following tests?</p>
+            <div class="options">
+                <label><input type="radio" name="q42" value="Day 10 rise in follicle-stimulating hormone (FSH)"> Day 10 rise in follicle-stimulating hormone (FSH)</label>
+                <label><input type="radio" name="q42" value="Day 13 surge in oestradiol"> Day 13 surge in oestradiol</label>
+                <label><input type="radio" name="q42" value="Day 14 surge in progesterone"> Day 14 surge in progesterone</label>
+                <label><input type="radio" name="q42" value="Day 14 surge in luteinising hormone (LH)"> Day 14 surge in luteinising hormone (LH)</label>
+                <label><input type="radio" name="q42" value="Regular menses"> Regular menses</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-43">
+            <p>43- Each one of the following is associated with Pendred's syndrome except:</p>
+            <div class="options">
+                <label><input type="radio" name="q43" value="Goitre"> Goitre</label>
+                <label><input type="radio" name="q43" value="Short 4th and 5th metacarpals"> Short 4th and 5th metacarpals</label>
+                <label><input type="radio" name="q43" value="Autosomal recessive inheritance"> Autosomal recessive inheritance</label>
+                <label><input type="radio" name="q43" value="Sensorineural deafness"> Sensorineural deafness</label>
+                <label><input type="radio" name="q43" value="Euthyroid status"> Euthyroid status</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-44">
+            <p>44- A 65 year old man known to have a carcinoid tumour of the appendix is found to have hepatic metastases. If the patient develops carcinoid syndrome, which one of the following symptoms is the clinical hallmark and most likely to occur first?</p>
+            <div class="options">
+                <label><input type="radio" name="q44" value="Bronchospasm"> Bronchospasm</label>
+                <label><input type="radio" name="q44" value="Facial Flushing"> Facial Flushing</label>
+                <label><input type="radio" name="q44" value="Diarrhea"> Diarrhea</label>
+                <label><input type="radio" name="q44" value="Cardiac valvular lesions"> Cardiac valvular lesions</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-45">
+            <p>45- Which one of the following features is not seen in carcinoid syndrome?</p>
+            <div class="options">
+                <label><input type="radio" name="q45" value="Flushing"> Flushing</label>
+                <label><input type="radio" name="q45" value="Diarrhoea"> Diarrhoea</label>
+                <label><input type="radio" name="q45" value="Bronchospasm"> Bronchospasm</label>
+                <label><input type="radio" name="q45" value="Hypertension"> Hypertension</label>
+                <label><input type="radio" name="q45" value="Pellagra"> Pellagra</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-46">
+            <p>46- A 48-year-old man is diagnosed with carcinoid syndrome after presenting with diarrhea, flushing, and hypotension. With appropriate treatment, he experiences an appropriate response biochemically, and his flushing and blood pressure are markedly improved. However, he continues to have some mild diarrhea and also has mouth soreness. He remains fatigued with a loss of appetite and irritability. On examination, you notice his tongue is bright red and somewhat enlarged. It is tender to touch. In addition, he has a pigmented and scaling rash that is most prominent around his neckline. What is the most likely vitamin or mineral deficiency in this patient?</p>
+            <div class="options">
+                <label><input type="radio" name="q46" value="Copper"> Copper</label>
+                <label><input type="radio" name="q46" value="Niacin"> Niacin</label>
+                <label><input type="radio" name="q46" value="Ribofavin"> Ribofavin</label>
+                <label><input type="radio" name="q46" value="Vitamin C"> Vitamin C</label>
+                <label><input type="radio" name="q46" value="Zinc"> Zinc</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-47">
+            <p>47- Patient with memory impairment , hyperpigmentation, diarrhoea. Which of the following deficiency is the cause?</p>
+            <div class="options">
+                <label><input type="radio" name="q47" value="thiamine"> thiamine</label>
+                <label><input type="radio" name="q47" value="Niacin"> Niacin</label>
+                <label><input type="radio" name="q47" value="Riboflavin"> Riboflavin</label>
+                <label><input type="radio" name="q47" value="Pyridoxine"> Pyridoxine</label>
+                <label><input type="radio" name="q47" value="Cyanocobalamin"> Cyanocobalamin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-48">
+            <p>48- A 56 year old man presents with a 5-year history of chronic right-sided lower abdominal pain and altered bowel habit. More recently he has developed symptoms of increased shortness of breath, diarrhoea and intermittent flushing. A CT scan shows a calcified mass in the mesentery with a surrounding desmoplastic response and multiple hepatic metastases. Which of the following would be the next initial investigation?</p>
+            <div class="options">
+                <label><input type="radio" name="q48" value="5-hydroxyindoleacetic acid (5-HIAA) concentration in urine"> 5-hydroxyindoleacetic acid (5-HIAA) concentration in urine</label>
+                <label><input type="radio" name="q48" value="Capsule endoscopy"> Capsule endoscopy</label>
+                <label><input type="radio" name="q48" value="Colonoscopy"> Colonoscopy</label>
+                <label><input type="radio" name="q48" value="Plasma insulin concentrations"> Plasma insulin concentrations</label>
+                <label><input type="radio" name="q48" value="Plasma somatostatin concentrations"> Plasma somatostatin concentrations</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-49">
+            <p>49- A 58-year-old female presents with flushing, diarrhoea and hypotension. A small bowel MRI demonstrates a mass in the ileum. A diagnosis of carcinoid syndrome is made. Your consultant initiates treatment with octreotide. What is the mechanism of action of octreotide?</p>
+            <div class="options">
+                <label><input type="radio" name="q49" value="Somatostatin antagonist"> Somatostatin antagonist</label>
+                <label><input type="radio" name="q49" value="Glucagon-like peptide-1 receptor agonists"> Glucagon-like peptide-1 receptor agonists</label>
+                <label><input type="radio" name="q49" value="Somatostatin analogue"> Somatostatin analogue</label>
+                <label><input type="radio" name="q49" value="Glucagon-like peptide-1 receptor antagonist"> Glucagon-like peptide-1 receptor antagonist</label>
+                <label><input type="radio" name="q49" value="Anti-serotonergic"> Anti-serotonergic</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-50">
+            <p>50- A 25-year-old woman with cystic fibrosis is diagnosed with chronic pancreatitis. She is at risk for all of the following complications EXCEPT:</p>
+            <div class="options">
+                <label><input type="radio" name="q50" value="Vitamin B12 deficiency"> Vitamin B12 deficiency</label>
+                <label><input type="radio" name="q50" value="Vitamin A deficiency"> Vitamin A deficiency</label>
+                <label><input type="radio" name="q50" value="Pancreatic carcinoma"> Pancreatic carcinoma</label>
+                <label><input type="radio" name="q50" value="Niacin deficiency"> Niacin deficiency</label>
+                <label><input type="radio" name="q50" value="Steatorrhea"> Steatorrhea</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-51">
+            <p>51- A 45-year-old woman presents with excessive hair growth on her face, chest and lower abdomen. Which of the following may be associated with her condition?</p>
+            <div class="options">
+                <label><input type="radio" name="q51" value="Cimetidine"> Cimetidine</label>
+                <label><input type="radio" name="q51" value="Cyproterone"> Cyproterone</label>
+                <label><input type="radio" name="q51" value="Hypoadrenalism"> Hypoadrenalism</label>
+                <label><input type="radio" name="q51" value="Minoxidil"> Minoxidil</label>
+                <label><input type="radio" name="q51" value="Spironolactone"> Spironolactone</label>
+            </div>
+        </div>
+
+        <button class="btn" id="nextBtn" onclick="nextQuestion()">Next Question</button>
+        <button class="btn" id="submitBtn" onclick="evaluateQuiz()" style="display: none;">Submit Quiz</button>
+
+        <div class="result" id="result">
+            <h2>Results</h2>
+            <div id="score"></div>
+            <div id="answers-summary"></div>
+        </div>
+    </div>
+
+    <script>
+        // إضافة حدث للكيبورد لمنع حفظ الصفحة
+        document.addEventListener("keydown", function (event) {
+            if (event.ctrlKey && event.key === "s") {
+                event.preventDefault();
+                alert("تم منع حفظ الصفحة!");
+            }
+        });
+
+        // إضافة حدث للكيبورد لمنع فتح أدوات المطور
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I")) {
+                event.preventDefault();
+                alert("تم تعطيل أدوات المطور!");
+            }
+        });
+
+        // إضافة حدث للكيبورد لمنع النقر بزر اليمين
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // يمنع فتح قائمة السياق
+            alert("النقر بزر الماوس الأيمن غير مسموح به.");
+        });
+
+        let currentQuestion = 1;
+        const totalQuestions = 51;
+        let score = 0;
+        let timerInterval;
+        const answers = {
+            q1: "Hyperkalemia",
+            q2: "Bilateral idiopathic adrenal hyperplasia",
+            q3: "Bendroflumethiazide",
+            q4: "Renin : aldosterone ratio",
+            q5: "Autosomal recessive inheritance",
+            q6: "Bartter's syndrome",
+            q7: "Bartter's syndrome",
+            q8: "Hypertension",
+            q9: "Pheochromocytoma",
+            q10: "Weight gain",
+            q11: "24 hour urinary collection of metanephrines",
+            q12: "Pheochromocytoma",
+            q13: "Phenoxybenzamine",
+            q14: "Phenoxybenzamine",
+            q15: "Phenoxybenzamine followed by propanolol",
+            q16: "Bronchial Asthma",
+            q17: "Anxiety neurosis",
+            q18: "46.1",
+            q19: "Addison’s disease",
+            q20: "Dermatitis",
+            q21: "Metabolic alkalosis",
+            q22: "Short synacthen test",
+            q23: "Synacthen test",
+            q24: "Hydrocortisone",
+            q25: "Dehydroepiandrosterone (DHEA) deficiency",
+            q26: "activation of proteolytic enzymes called caspases",
+            q27: "C3b",
+            q28: "Breast development",
+            q29: "Complete androgen insensitivity syndrome",
+            q30: "Excessive exercise",
+            q31: "Ovarian cysts on ultrasound",
+            q32: "Affects between 2-3% of women of reproductive age",
+            q33: "Clitoromegaly",
+            q34: "Increases peripheral insulin sensitivity",
+            q35: "Clomifene",
+            q36: "Increased risk of colorectal cancer",
+            q37: "Increased risk of breast cancer",
+            q38: "Kallman’s syndrome",
+            q39: "Anosmia",
+            q40: "Karyotype",
+            q41: "encourages maturation of the follicle",
+            q42: "Day 14 surge in luteinising hormone (LH)",
+            q43: "Short 4th and 5th metacarpals",
+            q44: "Facial Flushing",
+            q45: "Hypertension",
+            q46: "Niacin",
+            q47: "Niacin",
+            q48: "5-hydroxyindoleacetic acid (5-HIAA) concentration in urine",
+            q49: "Somatostatin analogue",
+            q50: "Niacin deficiency",
+            q51: "Minoxidil"
+        };
+
+        function showQuestion() {
+            document.querySelectorAll('.question').forEach((q, index) => {
+                q .style.display = index + 1 === currentQuestion ? 'block' : 'none';
+            });
+            document.getElementById('nextBtn').style.display = currentQuestion < totalQuestions ? 'block' : 'none';
+            document.getElementById('submitBtn').style.display = currentQuestion === totalQuestions ? 'block' : 'none';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            clearInterval(timerInterval);
+            startTimer();
+            showQuestion();
+        }
+
+        function startTimer() {
+            let timeRemaining = 60;
+            document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    if (currentQuestion < totalQuestions) {
+                        nextQuestion();
+                    } else {
+                        evaluateQuiz();
+                    }
+                }
+            }, 1000);
+        }
+
+        function evaluateQuiz() {
+            score = 0;
+            let summary = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                const correctAnswer = answers[`q${i}`];
+                const questionElement = document.getElementById(`question-${i}`);
+                const options = document.querySelectorAll(`input[name="q${i}"]`);
+                let questionSummary = `<p><strong>Question ${i}: </strong>${questionElement.querySelector('p').innerText}</p>`;
+
+                options.forEach(option => {
+                    const optionLabel = option.parentElement;
+                    if (option.value === correctAnswer) {
+                        optionLabel.style.color = 'green';
+                    } else if (selectedOption && selectedOption.value === option.value) {
+                        optionLabel.style.color = 'red';
+                    }
+                });
+
+                questionSummary += `<div>Answer: <strong>${selectedOption ? selectedOption.value : 'None selected'}</strong></div>`;
+                questionSummary += `<div>Correct answer: <strong>${correctAnswer}</strong></div>`;
+
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    score++;
+                    summary += questionSummary + `<p class="correct">Correct</p>`;
+                } else {
+                    summary += questionSummary + `<p class="incorrect">Incorrect</p>`;
+                }
+            }
+
+            document.getElementById('score').textContent = `Your score: ${score} out of ${totalQuestions}`;
+            document.getElementById('answers-summary').innerHTML = summary;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('timer').style.display = 'none'; 
+            document.querySelectorAll('.question').forEach((q) => q.style.display = 'none');
+
+            clearInterval(timerInterval);
+        }
+
+        window.onload = function() {
+            showQuestion();
+            startTimer();
+        };
+        
+        
+        function nextQuestion() {
+    // Increase the current question counter
+            currentQuestion++;
+
+            // Reset the timer
+            clearInterval(timerInterval); // Stop the current timer
+            startTimer(); // Start the timer from the beginning
+
+            // Show the next question
+            showQuestion();
+        }
+        
+    </script>
+</body>
+</html>
